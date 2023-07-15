@@ -64,7 +64,7 @@ body {
 
 .task-controls {
     display: flex;
-    flex-shrink: 0;
+    justify-content: space-around;
 }
 .task-controls i {
     margin-left: 10px;
