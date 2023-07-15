@@ -28,7 +28,7 @@ class TaskManager {
     }
 
     createTaskCard(task) {
-      // ... same as before, but use `task.name` and `task.elapsedTime` ...
+        // Create the task card
         const taskCard = document.createElement('div');
         taskCard.classList.add('task-card');
 
@@ -59,6 +59,10 @@ class TaskManager {
         stopButton.classList.add('fas', 'fa-stop');
         taskControls.appendChild(stopButton);
 
+        const deleteButton = document.createElement('i');
+        deleteButton.classList.add('fas', 'fa-trash');
+        taskControls.appendChild(deleteButton);
+
         taskTop.appendChild(taskControls);
 
         // Add the taskTop div to the task card
@@ -67,7 +71,11 @@ class TaskManager {
         // Add the timer to the task card
         const timer = document.createElement('span');
         timer.classList.add('task-timer');
-        timer.textContent = '00:00:00';
+        const hours = Math.floor(task.elapsedTime / 3600000);
+        const minutes = Math.floor((task.elapsedTime % 3600000) / 60000);
+        const seconds = Math.floor((task.elapsedTime % 60000) / 1000);
+        timer.textContent = `${hours.toString().padStart(2, '0')}:${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+
         taskCard.appendChild(timer);
 
         let startTime;
@@ -88,6 +96,15 @@ class TaskManager {
             task.elapsedTime = elapsedTime;
             this.saveTasks();
         });
+
+        deleteButton.addEventListener('click', () => {
+            const taskIndex = this.tasks.indexOf(task);
+            this.tasks.splice(taskIndex, 1);
+
+            this.saveTasks();
+
+            this.render();
+        })
 
         return taskCard;
     }
