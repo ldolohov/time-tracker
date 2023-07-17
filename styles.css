@@ -100,7 +100,7 @@ button {
   overflow: hidden;
   padding-left: 16px;
   padding-right: 16px;
-  position: relative;
+  /* position: relative; */
   text-align: left;
   text-decoration: none;
   transition: box-shadow .15s,transform .15s;
@@ -144,7 +144,7 @@ input {
     overflow: hidden;
     padding-left: 16px;
     padding-right: 16px;
-    position: relative;
+    /* position: relative; */
     text-align: left;
     text-decoration: none;
     transition: box-shadow .15s, transform .15s;
@@ -167,11 +167,11 @@ input {
     }
 
     .container {
-        width: 85%; /* Increase container width */
+        width: 100%; /* Increase container width */
     }
 
     #task-list {
-        width: 100%; /* Increase task list width */
+        width: 90%; /* Increase task list width */
     }
 
     .task-card {
@@ -180,7 +180,7 @@ input {
     }
 }
 
-@media (max-width: 390px) {
+@media (max-width: 380px) {
     body {
         font-size: 1.5em; /* Reduce font size */
     }
@@ -190,7 +190,7 @@ input {
     }
 
     #task-list {
-        width: 100%; /* Increase task list width */
+        width: 90%; /* Increase task list width */
     }
 
     .task-card {
